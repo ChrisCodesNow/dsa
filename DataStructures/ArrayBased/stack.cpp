@@ -22,6 +22,16 @@ void Stack :: pop(){
   }
 }
 
+string Stack :: top(){
+  if(size() > 0){
+    //Indexed at 0
+    return S[count - 1];
+  }
+  else{
+    abort();
+  }
+}
+
 int Stack :: size(){
   return count;
 }
