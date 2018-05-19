@@ -5,8 +5,14 @@ Stack :: Stack(){
 }
 
 void Stack :: push(string x){
-  S[count] = x;
-  count += 1;
+  if(count < capacity){
+    S[count] = x;
+    count += 1;
+  }
+  else{
+    abort();
+  }
+  
 }
 
 int Stack :: size(){
