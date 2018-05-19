@@ -1,2 +1,3 @@
-# Practice-CPlusPlus
-Learn to use GitHub while doing practice problems.
+# CPlusPlusPractice
+
+Review Data Structures concepts in c++ language.
