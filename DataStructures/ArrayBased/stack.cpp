@@ -12,7 +12,6 @@ void Stack :: push(string x){
   else{
     abort();
   }
-  
 }
 
 void Stack :: pop(){
