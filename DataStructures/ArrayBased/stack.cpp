@@ -15,6 +15,13 @@ void Stack :: push(string x){
   
 }
 
+void Stack :: pop(){
+  //Only remove when stack has items.
+  if(size() > 0){
+    count -= 1;
+  }
+}
+
 int Stack :: size(){
   return count;
 }
