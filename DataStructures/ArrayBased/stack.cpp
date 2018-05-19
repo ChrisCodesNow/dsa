@@ -2,6 +2,7 @@
 
 Stack :: Stack(){
   count = 0;
+  capacity = 1000;
 }
 
 void Stack :: push(string x){
@@ -12,6 +13,7 @@ void Stack :: push(string x){
   else{
     abort();
   }
+  
 }
 
 void Stack :: pop(){
