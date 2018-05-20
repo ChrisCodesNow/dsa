@@ -15,6 +15,19 @@ void Queue :: push(string x){
   }
 }
 
+void Queue :: pop(){
+  if(size() > 0){
+    //up to size() - 1, to avoid accessing out of bound array by Q[i + 1]
+    for(int i = 0; i < size() - 1; i++){
+      Q[i] = Q[i + 1];
+    }
+    count -= 1;
+  }
+  else{
+    abort();
+  }
+}
+
 string Queue :: front(){
   if(size() > 0){
     return Q[count - 1];
