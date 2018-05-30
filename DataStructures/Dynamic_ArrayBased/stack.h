@@ -34,6 +34,9 @@ class Stack{
 		// Determine if stack is full or empty
 		bool is_full();
 		bool is_empty();
+		
+		// Enlarge stack
+		string* resize(string* A, int old_cap, int new_cap);
 };
 
 #endif

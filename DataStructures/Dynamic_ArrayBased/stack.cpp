@@ -10,7 +10,14 @@ Stack :: Stack(){
 Stack :: ~Stack(){}
 
 void Stack :: push(string s){
-	//
+	// Resize when needed
+	if(is_full()){
+		A = resize(A, capacity, capacity * 2);
+	}
+
+	// Add elements
+	A[count] = s;
+	count += 1;
 }
 
 void Stack :: pop(){}
@@ -28,5 +35,23 @@ bool Stack :: is_full(){
 
 bool Stack :: is_empty(){
 	return count == 0;
+}
+
+string* resize(string* A, int old_cap, int new_cap){
+	string* new_A = new string[new_cap];
+
+	// Copy existing items
+	for(int i = 0; i < new_cap; i++){
+		if(i < old_cap){
+			new_A[i] = A[i];
+		}
+		else{
+			new_A[i] = 0;
+		}
+	
+	}
+	// Deallocate old container
+	delete []A;
+	return new_A;
 }
 
