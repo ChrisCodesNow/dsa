@@ -26,11 +26,14 @@ class Stack{
 		// Get size of stack
 		int size();
 	private:
-	string* A;		// Storage for stack
-	int count;
-	int capacity;		// Maximum data elements allowed before resizing
+		string* A;		// Storage for stack
+		int count;
+		int capacity;		// Maximum data elements allowed before resizing
 
-
+		// HELPER METHODS
+		// Determine if stack is full or empty
+		bool is_full();
+		bool is_empty();
 };
 
 #endif
