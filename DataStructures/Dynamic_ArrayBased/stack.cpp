@@ -37,7 +37,7 @@ bool Stack :: is_empty(){
 	return count == 0;
 }
 
-string* resize(string* A, int old_cap, int new_cap){
+string* Stack :: resize(string* A, int old_cap, int new_cap){
 	string* new_A = new string[new_cap];
 
 	// Copy existing items
@@ -46,7 +46,7 @@ string* resize(string* A, int old_cap, int new_cap){
 			new_A[i] = A[i];
 		}
 		else{
-			new_A[i] = 0;
+			new_A[i] = "";
 		}
 	
 	}
