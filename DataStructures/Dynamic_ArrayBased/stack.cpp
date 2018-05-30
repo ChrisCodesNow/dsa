@@ -20,9 +20,21 @@ void Stack :: push(string s){
 	count += 1;
 }
 
-void Stack :: pop(){}
+void Stack :: pop(){
+	if(!is_empty()){
+		A[count - 1] = "";
+		count -= 1;
+	}
+}
 
-string Stack :: top(){}
+string Stack :: top(){
+	if(!is_empty()){
+		return A[count - 1];
+	}
+	else{
+		return "";
+	}
+}
 
 int Stack :: size(){
 	return count;
