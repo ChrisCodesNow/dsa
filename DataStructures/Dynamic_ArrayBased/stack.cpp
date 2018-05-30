@@ -12,6 +12,7 @@ Stack :: ~Stack(){}
 void Stack :: push(string s){
 	// Resize when needed
 	if(is_full()){
+		delete []A;
 		A = resize(A, capacity, capacity * 2);
 	}
 
@@ -62,8 +63,8 @@ string* Stack :: resize(string* A, int old_cap, int new_cap){
 		}
 	
 	}
-	// Deallocate old container
-	delete []A;
+
+	capacity = new_cap;
 	return new_A;
 }
 
