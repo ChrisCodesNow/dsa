@@ -7,12 +7,13 @@ Stack :: Stack(){
 	A = new string[capacity];
 }
 
-Stack :: ~Stack(){}
+Stack :: ~Stack(){
+	delete[] A;
+}
 
 void Stack :: push(string s){
 	// Resize when needed
 	if(is_full()){
-		delete []A;
 		A = resize(A, capacity, capacity * 2);
 	}
 
@@ -54,16 +55,10 @@ string* Stack :: resize(string* A, int old_cap, int new_cap){
 	string* new_A = new string[new_cap];
 
 	// Copy existing items
-	for(int i = 0; i < new_cap; i++){
-		if(i < old_cap){
-			new_A[i] = A[i];
-		}
-		else{
-			new_A[i] = "";
-		}
-	
+	for(int i = 0; i < old_cap; i++){
+		new_A[i] = A[i];
 	}
-
+	delete[] this->A;
 	capacity = new_cap;
 	return new_A;
 }
