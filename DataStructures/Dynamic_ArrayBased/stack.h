@@ -36,7 +36,7 @@ class Stack{
 		bool is_empty();
 		
 		// Enlarge stack, update capacity
-		string* resize(string* A, int old_cap, int new_cap);
+		string* resize(string* old_A, int old_cap, int new_cap);
 };
 
 #endif
