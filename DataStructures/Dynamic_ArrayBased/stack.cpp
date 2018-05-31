@@ -56,16 +56,10 @@ string* Stack :: resize(string* old_A, int old_cap, int new_cap){
 
 	// Copy existing items
 	for(int i = 0; i < old_cap; i++){
-<<<<<<< HEAD
-		new_A[i] = A[i];
-	}
-	delete[] this->A;
-=======
-		new_A[i] = old_A[i];	
+		new_A[i] = old_A[i];
 	}
 
 	delete[] old_A;
->>>>>>> dev
 	capacity = new_cap;
 	return new_A;
 }
