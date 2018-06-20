@@ -2,6 +2,8 @@
 
 using namespace std;
 
+// Merge sorted left and right partitions into array A
+// Runtime: O(n)
 void merge(int* A, int* left, int left_size, int* right, int right_size){
 	// Create merged list
 	int * sorted_A = new int[left_size + right_size];
@@ -43,6 +45,9 @@ void merge(int* A, int* left, int left_size, int* right, int right_size){
 	delete []sorted_A;
 }
 
+
+// Recursive function
+// Runtime: O(nlog(n))
 int* mergesort(int* A, int n){
 	// Base case, list of size < 2 is already sorted.
 	if(n < 2){
