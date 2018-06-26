@@ -1,5 +1,5 @@
 
-
+//Run time: O(n^2)
 void quick_sort(int* A, int n){
 	// Implied base case: List already sorted
 	if(n < 2){
