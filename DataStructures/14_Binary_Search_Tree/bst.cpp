@@ -186,27 +186,38 @@ void BST :: remove_leaf(Node* &leaf, Node* &parent){
 }
 
 void BST :: remove_node_one_child(Node* &node, Node* &parent){
-	// Determine if node has a left or right child
-	// 	Case 1: node is an internal node
-	// 	Case 2: node is the root
-	// Delete the node
+	// Determine if parent exists
 
-	if(node->left != nullptr){
-		if(has_node(parent)){
-			parent->left = node->left;
+	// Case 1: Has Parent
+	// 	Determine if node is to the left or right of parent
+	// 	Determine if node has left or right child
+	if(has_node(parent)){
+		if(parent->left == node){
+			if(node->left != nullptr){
+				parent->left = node->left;
+			}
+			else{
+				parent->left = node->right;
+			}
 		}
 		else{
-			root = node->left;
+			if(node->left != nullptr){
+				parent->right = node->left;
+			}
+			else{
+				parent->right = node->right;
+			}			
 		}
 	}
+	// Case 2: No Parent
+	//	Determine if node has a left or right child
 	else{
-		if(has_node(parent)){
-			parent->right = node->right;
+		if(node->left != nullptr){
+			root = node->left;
 		}
 		else{
 			root = node->right;
 		}
-
 	}
 	delete node;
 }
