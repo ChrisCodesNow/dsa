@@ -220,7 +220,7 @@ void BST :: remove_node_two_children(Node* &node, Node* &parent){
 	Node* next_min = find_min(node->right);
 	Node* parent_of_next_min = find_parent(next_min);
 
-	swap_nodes(node->data, next_min->data);
+	swap(node->data, next_min->data);
 
 	if(has_one_child(doomed)){
 		remove_node_one_child(next_min, parent_of_next_min);
