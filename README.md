@@ -1,3 +1,2 @@
-# CPlusPlusPractice
-
-Review Data Structures concepts in c++ language.
+# DS and Algorithms in C++
+Practice problems
