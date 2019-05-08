@@ -1,3 +1,3 @@
-import .01_union_find.UnionFind as UnionFind
+from code.union_find import UnionFind
 
-disj_set = UnionFind(3)
+print('union find test')
