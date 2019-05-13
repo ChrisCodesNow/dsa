@@ -5,7 +5,7 @@ class Node:
 
 
     def set_end_word(self):
-        self.end_word = True
+        self.end_of_word = True
 
 
 class Trie:
@@ -45,7 +45,7 @@ class Trie:
             itr = itr.children[i]
 
         # return prev.end_word
-        return itr.end_word
+        return itr.end_of_word
 
 
 
@@ -55,7 +55,7 @@ if __name__ == '__main__':
     for word in words:
         trie.insert(word)
 
-    words += 'carrots calling bat soap camera zip'.split()
+    words += 'carrots calling bat soap camera zip so'.split()
 
 
     for word in words:
