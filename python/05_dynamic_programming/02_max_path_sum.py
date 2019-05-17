@@ -24,9 +24,9 @@ Space Complexity: O(1)
 '''
 class Solution():
     def max_sum_triangle(self, triangle):
-        # return self.solution_01(triangle)
-        return self.solution_02(triangle)
-        
+        return self.solution_01(triangle)
+        # return self.solution_02(triangle)
+        # return self.solution_03(triangle)
 
     #####################################
     # Approach 01
@@ -35,7 +35,7 @@ class Solution():
         if not triangle:
             return 0
         elif len(triangle) == 1:
-            return triangle[0]
+            return triangle[0][0]
 
         reduced_row = triangle[-1][:]
         for top_row in triangle[-2: : -1]:
@@ -64,7 +64,7 @@ class Solution():
         if not triangle:
             return 0
         elif len(triangle) == 1:
-            return triangle[0]
+            return triangle[0][0]
 
         reduced_row = triangle[-1][:]
         for top_row in triangle[-2: : -1]:
@@ -86,6 +86,34 @@ class Solution():
     #####################################
     # Approach 03
     # 
+    def solution_03(self, triangle):
+        if not triangle:
+            return 0
+        elif len(triangle) == 1:
+            return triangle[0][0]
+
+        i_top = len(triangle) - 2
+        while i_top >= 0:
+            self.reduce_row_03(triangle, i_top)
+            triangle.pop()
+            i_top -= 1
+
+        return triangle[0][0]
+    
+
+    # Triangle guaranteed to have i + 1 index rows
+    def reduce_row_03(self, triangle, i):
+        top_row = triangle[i]
+        bottom_row = triangle[i + 1]
+
+        for j in range(len(top_row)):
+            left_child = bottom_row[j]
+            right_child = bottom_row[j + 1]
+            max_path_val = top_row[j] + max(left_child, right_child)
+            top_row[j] = max_path_val
+
+        
+
 
 # Test
 class Test:
@@ -108,7 +136,6 @@ if __name__ == '__main__':
                 [2, 4, 6],
                 [8, 5, 9, 3]
                 ]
-
     t.run(s.max_sum_triangle(triangle) == 23)
 
 
@@ -117,5 +144,8 @@ if __name__ == '__main__':
                 [2, 2, 6],
                 [1, 1, 1, 1]
                 ]
-
     t.run(s.max_sum_triangle(triangle) == 19)
+
+
+    triangle = [[10]]
+    t.run(s.max_sum_triangle(triangle) == 10)
