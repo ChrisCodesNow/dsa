@@ -1,6 +1,7 @@
 from collections import defaultdict
 class Graph:
     def __init__(self, num_vertices):
+        self.num_vertices = num_vertices
         self.g = defaultdict(set)
         for i in range(num_vertices):
             self.g[i]
@@ -16,3 +17,10 @@ class Graph:
     def print(self):
         for u in self.g:
             print(f'{u} -> {self.g[u]}')
+
+
+    def __getitem__(self, u):
+        return self.g[u]
+
+    def vertices(self):
+        return self.num_vertices
