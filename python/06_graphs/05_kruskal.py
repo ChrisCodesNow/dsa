@@ -1,5 +1,7 @@
 # Kruskal's algorithm for minimum spanning trees
 from disjoint_set import DisjointSet
+from weighted_graph import Graph
+
 def min_span_tree(g, n):
     edges = get_edges(g)
     edges = sorted(edges, key=lambda edge:edge[2])
@@ -8,13 +10,30 @@ def min_span_tree(g, n):
     min_cost = 0
     for u,v,weight in edges:
         if not ds.are_connected(u, v):
-            cost += weight
+            min_cost += weight
             ds.join(u,v)
 
-    return cost
+    return min_cost
+
+def get_edges(g):
+    edges = []
+    for (u,v),weight in g.weights.items():
+        edges.append((u,v,weight))
+
+    return edges
 
 
 if __name__ == '__main__':
+    # Test
+    class Test:
+        count = 0
+        def run(self, result):
+            self.count += 1
+            if result:
+                print(f"Passed test {self.count}")
+            else:
+                print(f"Failed test {self.count}")
+
     t = Test()
 
 
