@@ -6,15 +6,18 @@ class Graph:
         self.g = defaultdict(set)
         self.weights = dict()
     
+
     def add_edge(self, u, v, weight):
         self.g[u].add(v)
         self.weights[(u,v)] = weight
+
 
     def remove_edge(self, u, v):
         if u in self.g.keys():
             if v in self.g[u]:
                 self.g[u].remove(v)
                 del weights[(u, v)]
+
 
     def print(self):
         for u in self.g:
@@ -29,9 +32,13 @@ class Graph:
     def __getitem__(self, u):
         return self.g[u]
 
+
     def vertices(self):
         return self.num_vertices
 
+
+    def edge_weight(self, u, v):
+        return self.weights[u, v]
 
 if __name__ == '__main__':
     g = Graph(5)
