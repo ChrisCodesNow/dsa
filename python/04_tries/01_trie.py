@@ -20,31 +20,25 @@ class Trie:
     def insert(self, key):
         
         itr = self.root
-        prev = None
         for char in key:
             i = self.idx(char)
             if not itr.children[i]:
                 itr.children[i] = Node()
 
-            prev = itr
             itr = itr.children[i]
 
-        # prev.set_end_word()
         itr.set_end_word()
 
 
     def search(self, key):
         itr = self.root
-        prev = None
         for char in key:
             i = self.idx(char)
             if not itr.children[i]:
                 return False
             
-            prev = itr
             itr = itr.children[i]
 
-        # return prev.end_word
         return itr.end_of_word
 
 
@@ -58,8 +52,8 @@ if __name__ == '__main__':
     words += 'carrots calling bat soap camera zip so'.split()
 
 
-    for word in words:
-        if trie.search(word):
-            print(f'{word} in trie')
-        else:
-            print(f'{word} NOT IN trie')
+    in_trie = [word for word in words if trie.search(word)]
+    not_in_trie = [word for word in words if not trie.search(word)]
+    
+    print(f"words in trie = {in_trie}")
+    print(f"words NOT in trie = {not_in_trie}")
