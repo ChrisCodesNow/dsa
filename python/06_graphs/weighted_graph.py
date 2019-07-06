@@ -9,7 +9,9 @@ class Graph:
 
     def add_edge(self, u, v, weight):
         self.g[u].add(v)
+        self.g[v].add(u)
         self.weights[(u,v)] = weight
+        self.weights[(v,u)] = weight
 
 
     def remove_edge(self, u, v):
